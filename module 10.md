@@ -9,12 +9,39 @@ Algorithm:
 4.	Call the search function and perform other linked list operations as needed.
  
 Program:
+```
+struct Node{
+struct Node *next; char data;
+}*head;
+void search(char data)
+{
+struct Node *ptr; char item=data; int i=0,flag;
+ptr = head; if(ptr == NULL)
+{
+printf("Empty List\n");
+}
+else
+{
+while (ptr!=NULL)
+{
+if(ptr->data == item)
+{
+printf("item %c found at location %d ",item,i+1); flag=0;
+}
+i++;
+ptr = ptr -> next;
+}
+if(flag!=0)
+{
+printf("Item not found\n");
+}
+}
 
-//type your code here
-
+}
+```
 Output:
 
-//paste your output here
+<img width="705" height="488" alt="image" src="https://github.com/user-attachments/assets/238cece3-2f8e-43dd-b490-498283c95bd1" />
 
 
 
@@ -33,12 +60,30 @@ Algorithm:
 4.	Call the insert function and perform other linked list operations as needed.
  
 Program:
+```
+struct Node{ char data;
+struct Node *next;
+}*head;
 
-//type your code here
-
+void insert(char data)
+{
+struct Node n=(struct Node)malloc(sizeof(struct Node)); struct Node *temp;
+if(head==NULL)
+{
+head=n;
+n->data=data; n->next=NULL; temp=head; return;
+}
+while(temp->next!=NULL)
+{
+temp=temp->next;
+}
+n->data=data; n->next=NULL; temp->next=n;
+}
+```
 Output:
 
-//paste your output here
+<img width="467" height="408" alt="image" src="https://github.com/user-attachments/assets/e4554ab2-8fa8-4482-8a86-b5df58da0159" />
+
 
  
 Result:
@@ -57,18 +102,31 @@ Algorithm:
 4.	Move to the next node by updating the temp pointer to point to the next node (temp = temp->next).
  
 Program:
-
-//type your code here
-
+```
+struct Node
+{
+    struct Node *prev; 
+    struct Node *next; 
+    int data;
+}*head;
+void display()
+{
+    struct Node *temp; 
+    temp=head; 
+    while(temp!=0)
+    {
+        printf("%d ",temp->data); 
+        temp=temp->next;
+        
+    }
+}
+```
 Output:
-
-//paste your output here
+<img width="392" height="458" alt="image" src="https://github.com/user-attachments/assets/ee916f55-78c6-4f86-a2b2-bba15793201e" />
 
 
 Result:
 Thus, the program to traverse a doubly linked list is verified successfully. 
-
-
 
 EXP NO:19 C PROGRAM TO INSERT AN ELEMENT IN DOUBLY LINKED LIST
 Aim:
@@ -82,61 +140,47 @@ Algorithm:
 5.	Set the new node's prev pointer to the last node and update the last node's next pointer to the new node.
  
 Program:
-
-//type your code here
-
+```
+struct Node
+{
+    struct Node *prev;
+    struct Node *next;
+    float data;
+}*head;
+void insert(float data)
+{
+    struct Node *n=(struct Node*)malloc(sizeof(struct Node));
+    struct Node *temp;
+if(head==NULL)
+{
+    head=n;
+    n->data=data;
+    n->next=NULL; 
+    n->prev=NULL; 
+    temp=head;
+}
+else
+{
+    while(temp->next!=NULL)
+    {
+        temp=temp->next;        
+    }
+    n->data=data; 
+    n->next=NULL; 
+    n->prev=temp; 
+    temp->next=n;  
+}
+}
+```
 Output:
 
-//paste your output here
+<img width="463" height="630" alt="image" src="https://github.com/user-attachments/assets/893d9915-6169-4f3a-b924-740914a912ee" />
 
 
 Result:
-Thus, the program to insert an element in doubly linked list is verified successfully.
+Thus, the program to traverse a doubly linked list is verified successfully. 
 
 
-
-
-EXP NO:20 C FUNCTION TO DELETE A GIVEN ELEMENT IN THE GIVEN LINKED LIST
-
-
-
-
-Aim:
-To write a C function that deletes a given element from a linked list.
-
-Algorithm:
-1.	Check if the Linked List is Empty:
-o	If the head of the linked list is NULL, print a message indicating the list is empty and exit the function.
-2.	Traverse the Linked List:
-o	Start from the head node and iterate through the list to find the node that contains the given element (data).
-3.	Handle Deletion of the First Node:
-o	If the element to be deleted is found in the head node:
-	Update the head of the linked list to point to the next node (i.e., head = head->next).
-	Free the memory allocated to the node to be deleted.
-	Exit the function.
-4.	Traverse and Delete from the Middle or End:
-o	If the element is not in the head node, continue traversing the list by checking each node’s next pointer.
-o	When the node with the element is found, update the previous node’s next pointer to point to the next node of the node to be deleted (prev->next = current->next).
-o	Free the memory allocated to the node to be deleted.
-5.	Handle the Case when the Element is Not Found:
-o	If the element is not found in any node, print a message indicating the element is not present in the list.
-6.	End the Function.
-
-
-Program:
-
-//type your code here
-
-Output:
-
-//paste your output here
-
-
-
-
-
-Result:
-Thus, the function that deletes a given element from a linked list is verified successfully.
 
 
 
