@@ -15,13 +15,28 @@ Else
 6.	Return 0
  
 Program:
-
-//type your code here
-
-
+```
+#include<stdio.h>
+struct d
+{
+    int n;
+    char name[90];
+};
+int main()
+{
+    struct d s;
+    scanf("%d",&s.n);
+    scanf("%s",s.name);
+    if(s.n>18)
+    printf("Age:%d\nName:%svaccine:%d\neligibility:yes",s.n,s.name,s.n);
+    else
+    printf("Age:%d\nName:%svaccine:%d\neligibility:no",s.n,s.name,s.n);
+}
+```
 Output:
 
-//paste your output here
+<img width="1252" height="327" alt="image" src="https://github.com/user-attachments/assets/10618efa-6e74-4548-bf5d-f1368e750580" />
+
 
 
 Result:
@@ -43,16 +58,28 @@ Algorithm:
 7.	Return 0
  
 Program:
-
-//type your code here
-
-
-
+```
+#include <stdio.h>
+union book {
+   int bookno;
+char bookname[20];
+float price;
+} j;
+int main()
+{
+    scanf("%d",&j.bookno);
+    printf("Book Number:%d\n",j.bookno);
+    scanf("%s",j.bookname);
+    printf("Book Name:%s\n",j.bookname);
+    scanf("%f",&j.price);
+    printf("BooK Price:%.2f\n",j.price);
+}
+```
 
 Output:
 
 
-//paste your output here
+<img width="1023" height="615" alt="image" src="https://github.com/user-attachments/assets/d21ad737-fbb4-477d-9993-9b9db22a7f66" />
 
 
 
@@ -85,16 +112,33 @@ Use scanf to input the file name into the name array.
 5.	Return 0 to indicate successful program execution.
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int main() {
+    char s[100];  
+    FILE *fp;
+
+    scanf("%s", s);
+    fp = fopen(s, "w");
+
+    if (fp != NULL) {
+        printf("%s File Created Successfully\n%s File Opened\n", s, s);
+        fclose(fp);
+        printf("%s File Closed\n", s);
+    } else {
+        printf("Error: Could not create %s\n", s);
+    }
+
+    return 0;
+}
 
 
-
-
+```
 Output:
 
 
-//paste your output here
+<img width="1011" height="629" alt="image" src="https://github.com/user-attachments/assets/6b164f5a-d54f-42fd-a795-01c1e95c94e5" />
 
 
 
@@ -132,16 +176,43 @@ Use scanf to input the file name into the name array and the number of strings i
 5.	Return 0 to indicate successful program execution.
  
 Program:
+```
+#include <stdio.h>
+struct d
+{
+    int r;
+    char n[100];
+    float m;
+};
+int main()
+{
+    FILE* fp;
+    char c[100];
+    scanf("%s",c);
+    fp=fopen(c,"w");
+    if(fp!=NULL)
+    {
+        printf("%s Opened\n",c);
+    }
+    int n;
+    scanf("%d",&n);
+    struct d t[n];
+    while(n!=0)
+    {
+        scanf("%d %s %f",&t[n].r,t[n].n,&t[n].m);
+        fprintf(fp,"%d %s %.2f\n",t[n].r,t[n].n,t[n].m);
+        n--;
+    }
+    printf("Data added Successfully");
+    fclose(fp);
+}
 
-//type your code here
 
-
-
-
+```
 Output:
 
 
-//paste your output here
+<img width="1039" height="569" alt="image" src="https://github.com/user-attachments/assets/45c99883-1359-47a9-b825-96729b16cffe" />
 
 
 
@@ -186,18 +257,54 @@ Algorithm:
 13.End the program by returning 0.
 
 Program:
+```
 
-//type your code here
+#include <stdio.h>
+  #include<string.h>
+   struct student
+   {
+       int regno;
+       char name[20];
+       int no_of_present;
+       int jun;
+       int july;
+       int aug;
+       int sep;
+       float avg;
+       char eligibilty[5];
+   };
+   int main()
+   { 
+       struct student stu1;
+   scanf("%d%s",&stu1.regno,stu1.name);
+   scanf("%d%d%d%d",&stu1.jun,&stu1.july,&stu1.aug,&stu1.sep);
+   if(stu1.jun<=21 && stu1.july<=21 && stu1.aug<=21 && stu1.sep<=21)
+   {
+   stu1.no_of_present=stu1.jun+stu1.july+stu1.aug+stu1.sep;
+   stu1.avg=(float)stu1.no_of_present/84 * 100;
+   if(stu1.avg>75)
+   strcpy(stu1.eligibilty,"yes");
+   else
+   strcpy(stu1.eligibilty,"no");
+   printf("Reg.no:%d\nName:%s\nTotal.No.of.present days:%d\n",stu1.regno,stu1.name,stu1.no_of_present);
+   printf("Attendence:%.2f\neligibility:%s",stu1.avg,stu1.eligibilty);
+   }
+   else
+   {
+   printf("Invalid data:No.of.present days is greater than working day");
+   }
+   return 0;
+   }
 
 
-
+```
 
 Output:
 
 
-//paste your output here
+<img width="1010" height="669" alt="image" src="https://github.com/user-attachments/assets/15fec5b9-6ea0-474c-90af-005e775bc94f" />
 
-
+Result: Thus, the program is verified successfully
 
 
 
